@@ -24,11 +24,19 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 
 Explain in detail the workings of a dynamic array:
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
-* What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
-Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+    * Unsorted array —> O(1) from the end, O(n) from the front (bc you have to reindex every other element) 
+
+* What is the worse case scenario if you try to extend the storage size of a dynamic array? 
+    * Usually, adding an element to the end of the array is O(1) constant time. BUT if the dynamic array hasn’t pre allocated enough room for the new element, it will need to grow the size of the array and each time the size grows, it takes O(n) time because we need to copy everything from the old array to the new array with the newly requested space.
+
+* Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+
+    * The blockchain is a distributed and decentralized ledger that stores data such as transactions and that is publicly shared across all of the nodes in its network. A blockchain consists of a chain of blocks, individual links in the chain. Each block contains a timestamp, list of transactions, proof, and the hash of the previous block so they are all linked.  
  
-Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+* Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+
+    * To gain rights to add a block to the chain, the miner must solve a computational puzzle that’s difficult to solve called proof of work. Once the miner does solve the proof of work, they gain the rights to submit that block containing the transactions to the blockchain network. Other miners will recognize the solution since proof of work is easily verified once another miner presents a solution for it and with an agreed upon verification, miners in the network will include the new block in their chains. Thus, an attack where someone has control of 51% of mining power is possible because they will be able to make the longest chain  of blocks and have the majority of nodes agree with it.
 
 ## Project Set Up
 
