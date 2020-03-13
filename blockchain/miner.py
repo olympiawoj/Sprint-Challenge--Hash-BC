@@ -23,8 +23,13 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 0
+
+    proof = 17171717
     #  TODO: Your code here
+    
+    #while last proof does not equal proof
+    while valid_proof(last_proof, proof) is False:
+      proof += 1
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
@@ -40,7 +45,18 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    pass
+    #encode objects into utf-8 bte BEFORE hashing
+
+    last_guess = f'{last_hash}'.encode()
+    last_guess_hash= hashlib.sha256(last_guess).hexdigest()
+    
+    cur_proof = f'{proof}'.encode() 
+    cur_proof_hash = hashlib.sha256(cur_proof).hexdigest() 
+
+    
+    #returns true or false
+    return last_guess_hash[-6:] ==  cur_proof_hash[:6]
+ 
 
 
 if __name__ == '__main__':
